@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/spradeepv/guestbook.git
-    targetRevision: 1.0.0
+    targetRevision: 1.0.1
     path: .
   syncPolicy:
     automated:
