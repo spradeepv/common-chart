@@ -4,7 +4,7 @@ metadata:
   generateName: app-slack-notification-
   annotations:
     argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   template:
     spec:
@@ -15,7 +15,7 @@ spec:
         - name: APP_TOKEN
           valueFrom:
             secretKeyRef:
-              name: guestbook-secret
+              name: chart-secret
               key: token
         command:
           - "curl"
