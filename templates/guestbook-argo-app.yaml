@@ -1,0 +1,21 @@
+# (C) Copyright 2021 Hewlett Packard Enterprise Development LP
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: guestbook
+    repoURL: https://github.com/spradeepv/guestbook.git
+    targetRevision: 1.0.0
+    path: .
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
